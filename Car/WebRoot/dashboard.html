@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>云洞数据-控制台首页</title>
+	<meta charset="utf-8">
+    <meta name="keywords" content="云洞数据,抖音数据分析,抖音直播,抖音热门商品,抖音运营,抖音带货分析,热门预测">
+    <meta name="description" content="运用大数据分析抖音热门商品,为电商运营和粉丝收割提供风向标">
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0">
+ 	<link rel="shortcut icon" href="images/favicon.png">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" id="mycss" href="css/dashboard.css">
+	<script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
+</head>
+<body>
+<header>
+	<div id="header">
+		<div>
+			<a id="nav_left" class="disable_select" href="/" onclick="return false;">
+				<div id="logo">
+					<span class="iconfont">&#xe62d;</span>
+					<p>云洞数据</p>
+				</div>
+				<span id="console">控制台<span class="iconfont">&#xe635;</span></span>
+			</a>
+			<nav id="nav_right">
+				<div id="search" class="disable_select">
+					<span class="iconfont">&#xe634;</span>
+					<input type="text" placeholder="搜索关键词、功能">
+				</div>
+				<div id="r_right">
+					<div id="r_right_l">
+						<div id="tool_bar">
+							<span class="disable_select">账号管理</span>
+							<span class="disable_select">消息</span>
+							<span class="disable_select" id="home">官网</span>
+						</div>
+						<img src="//thirdqq.qlogo.cn/g?b=oidb&k=TE6QlkOyYZGgAnjrKEK2Ew&s=640&t=1592216094" class="disable_select" />
+						<span class="disable_select">梦丶随心飞</span>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div id="tip">
+		<ul>
+			<li>退出登录</li>
+		</ul>
+	</div>
+</header>
+<center>
+	<aside class="active">
+		<p><span class="iconfont">&#xe639;</span>服务和功能</p>
+			<div id="inner">
+				<p class="active"><span class="iconfont">&#xe638;</span>行业趋势</p>
+				<p><span class="iconfont">&#xe637;</span>类目数据</p>
+				<p><span class="iconfont">&#xe636;</span>热词热点</p>
+			</div>
+		<p><span class="iconfont">&#xe63b;</span>帮助与支持</p>
+			<div id="inner">
+				<p><span class="iconfont">&#xe63c;</span>反馈</p>
+				<p><span class="iconfont">&#xe63a;</span>关于我们</p>
+			</div>
+	</aside>
+	<div id="trend">
+			<h2>行业趋势</h2>
+			<div id="boxParent">
+				<div id="list">
+					<div id="selectBox" class="disable_select">
+						<div><input readonly="readonly" id="selectOne" value="近3天" day="3"><span class="iconfont">&#xe63d;</span></div>
+						<div><input readonly="readonly" id="selectTwo" value="美容护肤/美体/精油"><span class="iconfont">&#xe63d;</span></div>
+						<div><input placeholder="搜索或选择二级分类" readonly="readonly" id="selectThree"><span class="iconfont">&#xe63d;</span></div>
+						<div><input placeholder="搜索或选择三级分类" readonly="readonly" id="selectFour"><span class="iconfont">&#xe63d;</span></div>
+					</div>
+					<div id="optionBox" class="disable_select">
+						<ul id="options" class="selectOne">
+							<li day="3">近3天</li>
+							<li day="7">近7天</li>
+							<li day="30">近1月</li>
+							<li day="90">近3月</li>
+							<li day="365">近1年</li>
+						</ul>
+						<ul id="options" class="selectTwo">
+							<li>美容护肤/美体/精油</li>
+						</ul>
+						<ul id="options" class="selectThree">
+						</ul>
+						<ul id="options" class="selectFour">
+						</ul>
+					</div>
+				</div>
+				<div id="main" style="width: 60%;height: 400px;" ></div>
+			</div>
+	</div>
+	<div id="hot">
+		<h2>热点热词</h2>
+
+		<nav id="MyselectBox">
+			<div id="list">
+				<div id="selectBox" class="disable_select">
+					<div><input readonly="readonly" id="selectOneTab" value="昨天" day="1"><span class="iconfont">&#xe63d;</span></div>
+					<div><input readonly="readonly" id="selectTwoTab" value="美容护肤/美体/精油"><span class="iconfont">&#xe63d;</span></div>
+					<div><input placeholder="搜索或选择二级分类" readonly="readonly" id="selectThreeTab"><span class="iconfont">&#xe63d;</span></div>
+					<div><input placeholder="搜索或选择三级分类" readonly="readonly" id="selectFourTab"><span class="iconfont">&#xe63d;</span></div>
+				</div>
+				<div id="optionBox" class="disable_select">
+					<ul id="options" class="selectOneTab">
+						<li day="1">昨天</li>
+						<li day="3">近3天</li>
+						<li day="7">近7天</li>
+						<li day="30">近1月</li>
+						<li day="90">近3月</li>
+						<li day="365">近1年</li>
+					</ul>
+					<ul id="options" class="selectTwoTab">
+						<li>美容护肤/美体/精油</li>
+					</ul>
+					<ul id="options" class="selectThreeTab">
+					</ul>
+					<ul id="options" class="selectFourTab">
+					</ul>
+			</div>
+		</nav>
+
+	
+		<table><tbody><tr><th>排名 </th><th>搜索词 </th><th id="pv"><span class="iconfont">&#xe63f;</span>搜索热度 </th><th id="clickNum"><span class="iconfont">&#xe63f;</span>点击热度 </th><th id="ctr"><span class="iconfont">&#xe63f;</span>点击率 </th><th id="cvr"><span class="iconfont">&#xe63f;</span>转化率 </th><th id="competeValue"><span class="iconfont">&#xe63f;</span>竞争强度 </th><th>市场平均出价 </th></tr></tbody></table>
+		<div>
+			<table>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</center>
+<script type="text/javascript" src="js/dashboard.js"></script>
+</body>
+</html>

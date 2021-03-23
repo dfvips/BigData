@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.Mapper">
+  <insert id="storeCategoryinfo">
+  	insert into cate (cat_id, cat_name, level, parent_cat_id, parent_cat_name, parent_cat_level) values (#{0},#{1},#{2},#{3},#{4},#{5})
+  </insert>
+  <insert id="storeHotlist">
+  	insert into hotgoods (cat_id,cat_name,goods_name,order_num,visitor_num,incr_percent,update_date,type) values (#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7})
+  </insert>
+  <insert id="storeGroupsurgelist">
+  	insert into groupsurge (cat_id,cat_name,goods_name,order_num,visitor_num,incr_percent,update_date,type) values (#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7})
+  </insert>
+  <select id="searchCategoryInfo" resultType="entity.categoryinfo">
+    select * from cate
+  </select>
+  <select id="searchHotlist" resultType="int">
+    select count(*) from hotgoods where cat_id=#{0} and goods_name=#{1} and order_num=#{2} and visitor_num=#{3};
+  </select>
+  <select id="searchGroupsurgelist" resultType="int">
+    select count(*) from groupsurge where cat_id=#{0} and goods_name=#{1} and order_num=#{2} and visitor_num=#{3};
+  </select>
+  <insert id="storehotwords">
+  	insert into hotwords (pv,click_num,ctr,cvr,compete_value,impr_avg_bid,word,cat_id,cat_name,update_date) values (#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9})
+  </insert>
+  <insert id="storeallhotword">
+  	insert into words (heat,query,update_date,cat_id,cat_name) values (#{0},#{1},#{2},#{3},#{4})
+  </insert>
+  <insert id="storehotlongtailedwords">
+  	insert into longhotwords (pv,click_num,ctr,cvr,compete_value,impr_avg_bid,word,cat_id,cat_name,update_date) values (#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9})
+  </insert>
+  <select id="queryhotword" resultType="int">
+    select count(*) from hotwords where pv=#{0} and click_num=#{1} and ctr=#{2} and cvr=#{3} and compete_value=#{4} and impr_avg_bid=#{5} and word=#{6} and cat_id=#{7};
+  </select>
+  <select id="queryhotlongtailedwords" resultType="int">
+    select count(*) from longhotwords where pv=#{0} and click_num=#{1} and ctr=#{2} and cvr=#{3} and compete_value=#{4} and impr_avg_bid=#{5} and word=#{6} and cat_id=#{7};
+  </select> 
+  
+  <select id="querywords" resultType="int">
+    select count(*) from words where heat=#{0} and query=#{1} and cat_id=#{2};
+  </select> 
+  
+  <insert id="storeIndustrytrend">
+  	insert into trend (visitor_num,search_num,click_num,update_date,cat_id,cat_name) values (#{0},#{1},#{2},#{3},#{4},#{5})
+  </insert>
+  
+  <insert id="storewordtrend">
+  	insert into wordtrend (word,pv,click_num,ctr,cvr,compete_value,impr_avg_bid,update_date,word_id) values (#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8})
+  </insert>  
+  
+  <insert id="storeyoungtrend">
+  	insert into youngtrend (word,pv,click_num,ctr,cvr,compete_value,impr_avg_bid,update_date,word_id) values (#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8})
+  </insert> 
+  
+  
+  <select id="queryIndustrytrend" resultType="int">
+    select count(*) from trend where visitor_num=#{0} and search_num=#{1} and click_num=#{2} and update_date=#{3} and cat_id=#{4};
+  </select> 
+  <select id="getIndustrytrend" resultType="entity.IndustryTrend">
+  	select * from trend where cat_id=#{0} and date_sub(curdate(),interval #{1} day) &lt;= date(update_date)
+  </select> 
+  
+  <select id="getHotwords" resultType="entity.hotwords">
+  	select * from hotwords where cat_id=#{0} and date_sub(curdate(),interval #{1} day) &lt;= date(update_date)
+  </select> 
+  
+  <select id="gethotlongtailedwords" resultType="entity.hotwords">
+  	select * from longhotwords where cat_id=#{0} and date_sub(curdate(),interval #{1} day) &lt;= date(update_date)
+  </select>   
+  
+   <select id="getHotlist" resultType="entity.goods">
+  	select * from hotwords where cat_id=#{0} and date_sub(curdate(),interval #{1} day) &lt;= date(update_date)
+  </select>  
+  
+  <select id="getGroupsurgelist" resultType="entity.goods">
+  	select * from groupsurge where cat_id=#{0} and date_sub(curdate(),interval #{1} day) &lt;= date(update_date)
+  </select>  
+  
+  <select id="getCategoryinfoParent" resultType="entity.categoryinfo">
+  	  select distinct parent_cat_id,parent_cat_name from cate
+  </select>   
+  <select id="getCategoryinfo" resultType="entity.categoryinfo">
+  	  select * from cate where parent_cat_id=#{0}
+  </select>   
+  <select id="getHotwordRankByClickNum" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) and cat_id=#{1} group by word,cat_id,cat_name order by click_num desc LIMIT #{2}
+  </select>
+  <select id="getHotwordRankAllByClickNum" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) group by word,cat_id,cat_name order by click_num desc LIMIT #{1}
+  </select>
+  <select id="getHotwordRankByCompeteValue" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) and cat_id=#{1} group by word,cat_id,cat_name order by compete_value desc LIMIT #{2}
+  </select>
+  <select id="getHotwordRankAllByCompeteValue" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) group by word,cat_id,cat_name order by compete_value desc LIMIT #{1}
+  </select>
+  <select id="getHotwordRankByPv" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) and cat_id=#{1} group by word,cat_id,cat_name order by pv desc LIMIT #{2}
+  </select>
+  <select id="getHotwordRankAllByPv" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) group by word,cat_id,cat_name order by pv desc LIMIT #{1}
+  </select>
+  <select id="getHotwordRankByCtr" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) and cat_id=#{1} group by word,cat_id,cat_name order by ctr desc LIMIT #{2}
+  </select>
+  <select id="getHotwordRankAllByCtr" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) group by word,cat_id,cat_name order by ctr desc LIMIT #{1}
+  </select>
+    <select id="getHotwordRankByCvr" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) and cat_id=#{1} group by word,cat_id,cat_name order by cvr desc LIMIT #{2}
+  </select>
+  <select id="getHotwordRankAllByCvr" resultType="entity.hotwords">
+  	select cat_id,cat_name,word,avg(compete_value) as compete_value,sum(click_num) as click_num,sum(pv) as pv,avg(ctr) as ctr,avg(cvr) as cvr,avg(impr_avg_bid) as impr_avg_bid from hotwords WHERE date_sub(curdate(),interval #{0} day) &lt;= date(update_date) group by word,cat_id,cat_name order by cvr desc LIMIT #{1}
+  </select>
+  
+  <select id="getGood" resultType="entity.goods">
+  	select sum(order_num) as order_num,sum(visitor_num) as visitor_num,cat_id,goods_name from hotgoods where cat_id = #{0} GROUP BY goods_name
+  </select>
+  <select id="queryWordTrend" resultType="int">
+ 	select count(*) from wordtrend where word=#{0} and pv=#{1} and click_num=#{2} and update_date=#{3}
+  </select>
+  
+  <select id="queryYoungTrend" resultType="int">
+ 	select count(*) from youngtrend where word=#{0} and pv=#{1} and click_num=#{2} and update_date=#{3}
+  </select>
+  
+  <select id="getCollectWord" resultType="entity.collectwords">
+	SELECT word_rise_id,word FROM hotwordscollect AS hwc LEFT JOIN hotwordsrise AS hwr ON hwc.word_rise_id = hwr.id WHERE 1 = 1 AND hwc.state =1
+  </select>
+  <select id="getYoungWord" resultType="entity.collectwords">
+    SELECT  any_value(id) as 'word_rise_id',word FROM `youngword` GROUP BY word order by 'word_rise_id'
+  </select>
+  <select id="getCollectGoods" resultType="entity.collectgoods">
+  	SELECT hot_rise_id,goods_name FROM hotcollect,hotrise where hotrise.id = hot_rise_id
+  </select>
+  <update id="updateHotCollect">
+  	UPDATE hotcollect set publish_date = #{0} WHERE hot_rise_id = #{1}
+  </update>
+  <insert id="storeHotTrend">
+	insert into hottrend (update_date,sell,comment,sum_sell,good_num,hot_rise_id,normal_price,group_price,activity_start,activity_end,activity_img) values (#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+  </insert>
+  <select id="queryHotNum" resultType="int">
+	  SELECT count(*) FROM `hottrend` where update_date like #{0} and hot_rise_id = #{1} 
+  </select>
+
+</mapper>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>云洞数据-抖音大数据分析平台</title>
+    <meta name="keywords" content="云洞数据,抖音数据分析,抖音直播,抖音热门商品,抖音运营,抖音带货分析,热门预测">
+    <meta name="description" content="运用大数据分析抖音热门商品,为电商运营和粉丝收割提供风向标">
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1.0,maximum-scale=1.0">
+ 	<link rel="shortcut icon" href="images/favicon.png">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	<script src="//at.alicdn.com/t/font_1975581_wtuyzdbx8in.js"></script>
+	<link rel="stylesheet" type="text/css" id="mycss" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+	<script src="js/scrolla.jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
+</head>
+<body class="scrollbar">
+<header>
+	<div id="title_bar">
+		<span class="iconfont disable_select">&#xe62d;</span>
+		<p class="disable_select lang" key="Website"></p>
+		<div class="bar_right disable_select">
+			<span class="translate lang" key="Language"></span>
+			<span key="About" class="lang" id="about"></span>
+		</div>
+	</div>
+</header>
+<center id="center">
+	<img src="images/background.png" id="bgbg" class="disable_select">
+	<div id="content">
+		<h1 key="Des" class="lang"></h1>
+		<p key="Content" class="lang"></p>
+		<button  key="Start" class="lang"></button>
+	</div>
+	<div id="more">
+		<h1 data-animate="fadeInUp" data-duration=".6s" data-delay="0.1s" data-iteration="1" key="Showadv" class="lang animate"></h1>
+		<div id="show_box">
+			<div id="box_1" data-animate="fadeInUp" data-duration=".6s" data-delay="0.1s" data-iteration="1" class="animate">
+				<svg class="icon" aria-hidden="true" id="imgx">
+				    <use xlink:href="#iconkeshihua"></use>
+				</svg>
+				<h4 key="Box1_1" class="lang"></h4>
+				<p key="Box1_2" class="lang"></p>
+			</div>
+			<div id="box_2" data-animate="fadeInUp" data-duration=".6s" data-delay="0.3s" data-iteration="1" class="animate">
+				<p class="iconfont disable_select" id="imgx">&#xe62f;</p>
+				<h4 key="Box2_1" class="lang"></h4>
+				<p key="Box2_2" class="lang"></p>
+			</div>
+			<div id="box_3" data-animate="fadeInUp" data-duration=".6s" data-delay="0.5s" data-iteration="1" class="animate">
+				<svg class="icon" aria-hidden="true" id="imgx">
+				    <use xlink:href="#iconshishiquanmian"></use>
+				</svg>
+				<h4 key="Box3_1" class="lang"></h4>
+				<p key="Box3_2" class="lang"></p>
+			</div>
+		</div>
+		<h1 data-animate="fadeInUp" data-duration=".6s" data-delay="0.7s" data-iteration="1" key="Slog" class="lang animate"></h1>
+		<div id="tab_1">
+			<div id="t_right_m" data-animate="fadeInRight" data-duration=".6s" data-delay="1.3s" class="animate">
+				<h2><span class="iconfont">&#xe632;</span><span class="lang" key="tip1"></span></h2>
+				<div id="line"></div>
+				<li class="lang" key="li1_1"></li>
+				<li class="lang" key="li1_2"></li>			
+				<li class="lang" key="li1_3"></li>
+				<li class="lang" key="li1_4"></li>
+			</div>
+			<div id="t_left" data-animate="fadeInLeft" data-duration=".6s" data-delay="1s" class="animate">
+				<div id="main" style="width: 650px;height:400px;"></div>
+			</div>
+			<div id="t_right" data-animate="fadeInRight" data-duration=".6s" data-delay="1.3s" class="animate">
+				<h2><span class="iconfont">&#xe632;</span><span class="lang" key="tip1"></span></h2>
+				<div id="line"></div>
+				<li class="lang" key="li1_1"></li>
+				<li class="lang" key="li1_2"></li>			
+				<li class="lang" key="li1_3"></li>
+				<li class="lang" key="li1_4"></li>
+			</div>
+		</div>
+		<div id="line_l"></div>
+		<div id="tab_2">
+			<div id="t2_left" data-animate="fadeInRight" data-duration=".6s" data-delay=".7s" class="animate">
+				<h2><svg class="icon" aria-hidden="true"><use xlink:href="#iconduoweicanshufenxi"></use></svg><span class="lang" key="tip2"><span></h2>
+				<div id="line"></div>
+				<li class="lang" key="li2_1"></li>
+				<li class="lang" key="li2_2"></li>			
+				<li class="lang" key="li2_3"></li>
+			</div>
+			<div id="t2_right" data-animate="fadeInLeft" data-duration=".6s" data-delay=".7s" class="animate">
+				<table>
+					<tbody>
+						<tr>
+							<th class="lang" key="t1"></th>
+							<th class="lang" key="t2"></th>
+							<th class="lang" key="t3"></th>
+							<th class="lang" key="t4"></th>
+							<th class="lang" key="t5"></th>
+						</tr>
+							<td>1</td>
+							<td class="lang" key="td1" ></td>
+							<td>633</td>
+							<td><span>7169.30%</span></td>
+							<td>19643</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td class="lang" key="td2"></td>
+							<td>88</td>
+							<td><span>2389.63%</span></td>
+							<td>636</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td class="lang" key="td3"></td>
+							<td>118</td>
+							<td><span>1631.54%</span></td>
+							<td>2065</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td class="lang" key="td4"></td>
+							<td>1258</td>
+							<td><span>227.79%</span></td>
+							<td>10743</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td class="lang" key="td5"></td>
+							<td>374</td>
+							<td><span>531.18%</span></td>
+							<td>4675</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td class="lang" key="td6"></td>
+							<td>186</td>
+							<td><span>865.47%</span></td>
+							<td>3487</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td class="lang" key="td7"></td>
+							<td>1365</td>
+							<td><span>154.42%</span></td>
+							<td>5755</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td class="lang" key="td8"></td>
+							<td>489</td>
+							<td><span>302.97%</span></td>
+							<td>7281</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<h1 data-animate="fadeInDown" data-duration=".6s" data-delay="0.7s" data-iteration="1"  key="About" class="animate lang" id="abab"></h1>
+		<p id="des" data-animate="fadeInDown" data-duration=".6s" data-delay="1s" data-iteration="1" key="para" class="animate lang"></p>
+	</div>	
+</center>
+<footer>
+	<p class="iconfont">&#xe631;</p>
+	<p>Copyright © 2020 Yundong. All Rights Reserved.</p>
+	<p>Powered By DreamFly</p>
+</footer>
+ <script src="js/index.js"></script>
+</body>
+</html>

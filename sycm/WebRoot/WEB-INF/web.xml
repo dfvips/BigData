@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app id="WebApp_ID">
+	<display-name>sycm</display-name>
+	<servlet>
+		<servlet-name>getCateInfo</servlet-name>
+		<servlet-class>servlet.getCateInfo</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>overview</servlet-name>
+		<servlet-class>servlet.overview</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>hotpurpose</servlet-name>
+		<servlet-class>servlet.hotpurpose</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>hotsearch</servlet-name>
+		<servlet-class>servlet.hotsearch</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>hotsale</servlet-name>
+		<servlet-class>servlet.hotsale</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>trend</servlet-name>
+		<servlet-class>servlet.trend</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>searchWord</servlet-name>
+		<servlet-class>servlet.searchWord</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>tailWord</servlet-name>
+		<servlet-class>servlet.tailWord</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>brandWord</servlet-name>
+		<servlet-class>servlet.brandWord</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>coreWord</servlet-name>
+		<servlet-class>servlet.coreWord</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>attrWord</servlet-name>
+		<servlet-class>servlet.attrWord</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeOverview</servlet-name>
+		<servlet-class>servlet.storeOverview</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeHotsale</servlet-name>
+		<servlet-class>servlet.storeHotsale</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeHotsearch</servlet-name>
+		<servlet-class>servlet.storeHotsearch</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeHotpurpose</servlet-name>
+		<servlet-class>servlet.storeHotpurpose</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeSearchword</servlet-name>
+		<servlet-class>servlet.storeSearchword</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>healthCenter</servlet-name>
+		<servlet-class>servlet.healthCenter</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeTailword</servlet-name>
+		<servlet-class>servlet.storeTailword</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeBrandword</servlet-name>
+		<servlet-class>servlet.storeBrandword</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeCoreword</servlet-name>
+		<servlet-class>servlet.storeCoreword</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>storeAttrword</servlet-name>
+		<servlet-class>servlet.storeAttrword</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>propertyTrend</servlet-name>
+		<servlet-class>servlet.propertyTrend</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>detail</servlet-name>
+		<servlet-class>servlet.detail</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>servlet.test</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>simnet</servlet-name>
+		<servlet-class>servlet.simnet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>addCookie</servlet-name>
+		<servlet-class>servlet.addCookie</servlet-class>
+	</servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>getCateInfo</servlet-name>
+		<url-pattern>/getCateInfo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>overview</servlet-name>
+		<url-pattern>/overview</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>hotpurpose</servlet-name>
+		<url-pattern>/item/hotpurpose</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>hotsearch</servlet-name>
+		<url-pattern>/item/hotsearch</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>hotsale</servlet-name>
+		<url-pattern>/item/hotsale</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>trend</servlet-name>
+		<url-pattern>/trend</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>searchWord</servlet-name>
+		<url-pattern>/industry/searchWord</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>tailWord</servlet-name>
+		<url-pattern>/industry/tailWord</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>brandWord</servlet-name>
+		<url-pattern>/industry/brandWord</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>coreWord</servlet-name>
+		<url-pattern>/industry/coreWord</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>attrWord</servlet-name>
+		<url-pattern>/industry/attrWord</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeOverview</servlet-name>
+		<url-pattern>/storeOverview</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeHotsale</servlet-name>
+		<url-pattern>/storeHotsale</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeHotsearch</servlet-name>
+		<url-pattern>/storeHotsearch</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeHotpurpose</servlet-name>
+		<url-pattern>/storeHotpurpose</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeSearchword</servlet-name>
+		<url-pattern>/storeSearchword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>healthCenter</servlet-name>
+		<url-pattern>/healthCenter</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeTailword</servlet-name>
+		<url-pattern>/storeTailword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeBrandword</servlet-name>
+		<url-pattern>/storeBrandword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeCoreword</servlet-name>
+		<url-pattern>/storeCoreword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>storeAttrword</servlet-name>
+		<url-pattern>/storeAttrword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>propertyTrend</servlet-name>
+		<url-pattern>/searchword/propertyTrend</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>detail</servlet-name>
+		<url-pattern>/detail</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>simnet</servlet-name>
+		<url-pattern>/simnet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>addCookie</servlet-name>
+		<url-pattern>/addCookie</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

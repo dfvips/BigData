@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>test.html</title>
+<meta charset="utf-8">
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<script
+	src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+
+<body>
+	<div id="main" style="width: 1000px;height: 500px;"></div>
+</body>
+<script type="text/javascript">
+	var result = null;
+	$.ajax({
+		url : "http://192.168.1.23:8080/zdata-yundong/hotGoods/findByCatId?catId=18639",
+		dataType : "json",
+		async : false,
+		type : "GET",
+		success : function(data) {
+			if (data.code == 200) {
+				result = data.data;
+				console.log(result);
+			}
+		}
+	});
+	let myChart = echarts.init(document.getElementById('main'));
+	var colors = [ '#5793f3', '#675bba' ];
+	let option = {
+		color : colors,
+
+		tooltip : {
+			trigger : 'axis'
+		},
+		grid : {
+			right : '20%'
+		},
+		legend : {
+			data : result.legend
+		},
+		xAxis : [
+			{
+				type : 'category',
+				axisLabel : {
+					show : false,
+				},
+				data : result.xAxis[0].data
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : result.yAxis[0].name,
+				min : result.yAxis[0].min,
+				max : result.yAxis[0].max,
+				position : 'right',
+				axisLine : {
+					lineStyle : {
+						color : colors[0]
+					}
+				},
+				axisLabel : {
+					formatter : '{value}'
+				},				
+				splitLine: {
+         		 "show": false
+        		},
+			},
+			{
+				type : 'value',
+				name : result.yAxis[1].name,
+				min : result.yAxis[1].min,
+				max : result.yAxis[1].max,
+				position : 'left',
+				axisLine : {
+					lineStyle : {
+						color : colors[1]
+					}
+				},
+				axisLabel : {
+					formatter : '{value}'
+				}
+			}
+		],
+		series : [
+			{
+				name : result.series[0].name,
+				type : 'bar',
+				data : result.series[0].data,
+			},
+			{
+				name : result.series[1].name,
+				type : 'line',
+				yAxisIndex : 1,
+				data : result.series[1].data,
+			}
+		]
+	};
+
+	myChart.setOption(option);
+	myChart.on('click', function(params) {
+		console.log(params.name)
+		$.ajax({
+			url : "http://192.168.1.23:8080/zdata-yundong/hotGoods",
+			dataType : "json",
+			async : false,
+			type : "GET",
+			success : function(data) {
+				if (data.code == 200) {
+					result = data.data;
+					console.log(result);
+				}
+			}
+		});
+	});
+</script>
+</html>

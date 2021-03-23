@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.Mapper_make">
+	<select id="searchCateInfo" resultType="entity.cate">
+		SELECT * from cate where
+		level=2
+	</select>
+	<select id="searchAllCateInfo" resultType="entity.cate">
+		SELECT * from cate
+	</select>
+	<insert id="fillCateInfo">
+		INSERT INTO cate (cat_parent,cat_id,cat_name,level)
+		VALUES
+		(#{0},#{1},#{2},#{3})
+	</insert>
+	<insert id="fillOverview">
+		INSERT INTO overview
+		(cat_id,se_ipv_uv_hits,se_pv_index, uv,
+		pv, clt_byr_cnt,
+		clt_times,
+		cart_byr_cnt, cart_times,
+		pay_byr_cnt_index, trade_index,
+		se_ipv_uv_hits_crc, se_pv_index_crc,
+		uv_crc, pv_crc, clt_byr_cnt_crc,
+		clt_times_crc, cart_byr_cnt_crc,
+		cart_times_crc,
+		pay_byr_cnt_index_crc,
+		trade_index_crc, update_time,
+		crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11},#{12},#{13},#{14},#{15},#{16},#{17},#{18},#{19},#{20},#{21},#{22})
+	</insert>
+
+	<insert id="fillHotsale">
+		INSERT INTO hotsale (cat_id, trade_growth_range,
+		trade_growth_range_crc,
+		item_id, pict_url, detail_url, item_title,
+		b2c_shop, picture_url, shop_title,
+		shop_url, user_id,
+		cate_rank,
+		cate_rank_cqc, trade_index, pay_rate_index, update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11},#{12},#{13},#{14},#{15},#{16},#{17})
+	</insert>
+
+	<insert id="fillHotsearch">
+		INSERT INTO hotsearch (cat_id, item_id, pict_url,
+		detail_url, item_title,
+		b2c_shop, picture_url, shop_title, shop_url,
+		user_id, trade_index, cate_rank,
+		se_ipv_uv_hits, uv_index,
+		update_time,
+		crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11},#{12},#{13},#{14},#{15})
+	</insert>
+
+	<insert id="fillHotpurpose">
+		INSERT INTO hotpurpose (cat_id, item_id, pict_url,
+		detail_url, item_title,
+		picture_url, shop_title, shop_url, user_id,
+		trade_index, cate_rank, cate_rank_cqc,
+		clt_hits, cart_hits,
+		update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11},#{12},#{13},#{14},#{15})
+	</insert>
+
+	<insert id="fillSearchwordHot">
+		INSERT INTO searchwordhot (cat_id, click_hits,
+		click_rate, rank, order_num,
+		p4p_ref_price, pay_rate, se_ipv_uv_hits,
+		search_word, tm_click_rate, update_time,
+		crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11})
+	</insert>
+
+	<insert id="fillSearchwordSoar">
+		INSERT INTO searchwordsoar (cat_id, click_hits,
+		click_rate, rank, order_num,
+		p4p_ref_price, pay_rate, se_ipv_uv_hits,
+		search_word, se_rise_rate, update_time,
+		crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11})
+	</insert>
+
+	<insert id="fillTailwordHot">
+		INSERT INTO tailwordhot (cat_id, click_hits,
+		click_rate, rank, order_num,
+		p4p_ref_price, pay_rate, se_ipv_uv_hits,
+		search_word, tm_click_rate, update_time,
+		crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11})
+	</insert>
+
+	<insert id="fillTailwordSoar">
+		INSERT INTO tailwordsoar (cat_id, click_hits,
+		click_rate, rank, order_num,
+		p4p_ref_price, pay_rate, se_ipv_uv_hits,
+		search_word, se_rise_rate, update_time,
+		crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10},#{11})
+	</insert>
+
+	<insert id="fillBrandwordHot">
+		INSERT INTO brandwordhot (cat_id,
+		avg_word_click_hits,
+		avg_word_click_rate,
+		avg_word_pay_rate,
+		avg_word_se_ipv_uv_hits, rank, search_word, p4p_ref_price,
+		rel_se_word_cnt,
+		update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+	</insert>
+
+	<insert id="fillBrandwordSoar">
+		INSERT INTO brandwordsoar (cat_id,
+		avg_word_click_hits,
+		avg_word_se_rise_rate, avg_word_pay_rate,
+		avg_word_se_ipv_uv_hits, rank, search_word,
+		p4p_ref_price,
+		rel_se_word_cnt, update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+	</insert>
+	
+	<insert id="fillCorewordHot">
+		INSERT INTO corewordhot (cat_id,
+		avg_word_click_hits,
+		avg_word_click_rate,
+		avg_word_pay_rate,
+		avg_word_se_ipv_uv_hits, rank, search_word, p4p_ref_price,
+		rel_se_word_cnt,
+		update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+	</insert>
+
+	<insert id="fillCorewordSoar">
+		INSERT INTO corewordsoar (cat_id,
+		avg_word_click_hits,
+		avg_word_se_rise_rate, avg_word_pay_rate,
+		avg_word_se_ipv_uv_hits, rank, search_word,
+		p4p_ref_price,
+		rel_se_word_cnt, update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+	</insert>
+	
+	<insert id="fillAttrwordHot">
+		INSERT INTO attrwordhot (cat_id,
+		avg_word_click_hits,
+		avg_word_click_rate,
+		avg_word_pay_rate,
+		avg_word_se_ipv_uv_hits, rank, search_word, p4p_ref_price,
+		rel_se_word_cnt,
+		update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+	</insert>
+
+	<insert id="fillAttrwordSoar">
+		INSERT INTO attrwordsoar (cat_id,
+		avg_word_click_hits,
+		avg_word_se_rise_rate, avg_word_pay_rate,
+		avg_word_se_ipv_uv_hits, rank, search_word,
+		p4p_ref_price,
+		rel_se_word_cnt, update_time, crawl_time)
+		VALUES
+		(#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},#{9},#{10})
+	</insert>
+</mapper>
